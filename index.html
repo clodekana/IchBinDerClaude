@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #02021127;
+            background: #f0f2f5;
             min-height: 100vh;
         }
 
@@ -21,7 +21,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(5, 3, 34, 0.95);
+            background: rgba(2, 12, 43, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             z-index: 1000;
@@ -54,7 +54,7 @@
         }
 
         .nav-links a:hover {
-            background: linear-gradient(135deg, #667eea 0%, #dcd7e2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             transform: translateY(-2px);
         }
@@ -66,7 +66,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #0e1438 0%, #0c0114 100%);
+            background: linear-gradient(135deg, #041046 0%, #9a53e0 100%);
             border-radius: 20px;
             padding: 3rem;
             margin-bottom: 2rem;
@@ -75,7 +75,7 @@
             align-items: center;
             gap: 3rem;
             flex-wrap: wrap;
-            color: rgb(12, 11, 11);
+            color: white;
         }
 
         .profile-img {
@@ -87,10 +87,10 @@
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-            color: #b9bcc9;
+            color: #667eea;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 5px solid rgba(255, 255, 255, 0.3);
         }
 
         .profile-img img {
@@ -158,7 +158,7 @@
             color: #333;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 3px solid #9799a5;
+            border-bottom: 3px solid #667eea;
         }
 
         .job-card {
@@ -308,22 +308,137 @@
         }
 
         @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
+            .container {
+                padding: 90px 1rem 1rem;
+            }
+
+            .nav {
+                padding: 0.8rem 1rem;
             }
 
             .nav-content {
                 flex-direction: column;
+                gap: 0.5rem;
             }
 
             .nav-links {
                 width: 100%;
                 justify-content: center;
+                gap: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .nav-links a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .profile-img {
+                width: 180px;
+                height: 180px;
+                font-size: 3rem;
             }
 
             .hero-content h1 {
-                font-size: 2rem;
+                font-size: 1.6rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.1rem;
+            }
+
+            .profile-description {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .job-card {
+                padding: 1.5rem;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .company-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .job-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .job-title {
+                font-size: 1rem;
+            }
+
+            .job-period {
+                font-size: 0.85rem;
+            }
+
+            .job-tasks li {
+                font-size: 0.9rem;
+                padding: 0.4rem 0;
+                padding-left: 1.2rem;
+            }
+
+            .education-card {
+                padding: 1.5rem;
+            }
+
+            .education-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .education-card .degree {
+                font-size: 0.95rem;
+            }
+
+            .education-card .period {
+                font-size: 0.85rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-category h3 {
+                font-size: 1.1rem;
+            }
+
+            .skill-item {
+                font-size: 0.9rem;
+                padding: 0.7rem 1rem;
+            }
+
+            .hobby-item, .volunteer-item {
+                font-size: 0.9rem;
+                padding: 0.8rem 1.2rem;
             }
         }
     </style>
@@ -331,7 +446,7 @@
 <body>
     <nav class="nav">
         <div class="nav-content">
-            <div style="font-weight: bold; font-size: 1.2rem; color: #acb2cc;">Mein Lebenslauf</div>
+            <div style="font-weight: bold; font-size: 1.2rem; color: #667eea;">Claude Kana</div>
             <div class="nav-links">
                 <a href="#profil">Profil</a>
                 <a href="#berufserfahrung">Berufserfahrung</a>
@@ -349,8 +464,8 @@
                 <img src="mein-foto.jpg" alt="Profilbild">
             </div>
             <div class="hero-content">
-                <h1>Jean Claude Kana Noumedem, M.Sc.</h1>
-                <h2>Rechnergestützte Produktentwicklung</h2>
+                <h1>Claude Kana</h1>
+                <h2>M.Sc. Rechnergestützte Produktentwicklung</h2>
                 
                 <p class="profile-description">
                     Maschinenbauingenieur mit dem Schwerpunkt rechnergestützte Produktentwicklung und einer ausgeprägten Affinität zum Produktentwicklungsprozess, insbesondere im Umgang mit CAD-Systemen wie Creo Parametric, NX und SolidWorks. Neben meiner fundierten technischen Ausbildung bringe ich über fünf Jahre Erfahrung als Werkstudent in verschiedenen Bereichen wie Konstruktion, Datenbankverwaltung und Robotic Process Automation (RPA).
