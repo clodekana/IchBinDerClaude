@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #02021127;
+            min-height: 100vh;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 3, 34, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, #667eea 0%, #dcd7e2 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 2rem 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0e1438 0%, #0c0114 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            color: rgb(12, 11, 11);
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 250px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #b9bcc9;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .profile-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 1.5rem 0;
+            text-align: justify;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .info-item strong {
+            color: white;
+        }
+
+        section {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            scroll-margin-top: 100px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #9799a5;
+        }
+
+        .job-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .job-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .company-logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        .job-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.3rem;
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .job-period {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .job-tasks {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-tasks li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .job-tasks li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            background: #f5f7fa;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-card h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .degree {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .period {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .hobbies-list, .volunteer-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hobby-item, .volunteer-item {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .hobby-item:hover, .volunteer-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-content {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div style="font-weight: bold; font-size: 1.2rem; color: #acb2cc;">Mein Lebenslauf</div>
+            <div class="nav-links">
+                <a href="#profil">Profil</a>
+                <a href="#berufserfahrung">Berufserfahrung</a>
+                <a href="#ausbildung">Ausbildung</a>
+                <a href="#skills">Fähigkeiten</a>
+                <a href="#weiterbildung">Weiterbildung</a>
+                <a href="#hobbies">Hobbies</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero" id="profil">
+            <div class="profile-img">
+                <img src="mein-foto.jpg" alt="Profilbild">
+            </div>
+            <div class="hero-content">
+                <h1>Jean Claude Kana Noumedem, M.Sc.</h1>
+                <h2>Rechnergestützte Produktentwicklung</h2>
+                
+                <p class="profile-description">
+                    Maschinenbauingenieur mit dem Schwerpunkt rechnergestützte Produktentwicklung und einer ausgeprägten Affinität zum Produktentwicklungsprozess, insbesondere im Umgang mit CAD-Systemen wie Creo Parametric, NX und SolidWorks. Neben meiner fundierten technischen Ausbildung bringe ich über fünf Jahre Erfahrung als Werkstudent in verschiedenen Bereichen wie Konstruktion, Datenbankverwaltung und Robotic Process Automation (RPA).
+                </p>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>📍</strong> Deutschland
+                    </div>
+                    <div class="info-item">
+                        <strong>🏠</strong> Kamerun
+                    </div>
+                    <div class="info-item">
+                        <strong>🎓</strong> FAU Erlangen-Nürnberg
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="sprachen">
+            <h2>🌍 Sprachen</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><strong>Deutsch:</strong> Verhandlungssicher</div>
+                <div class="skill-item"><strong>Französisch:</strong> Muttersprache</div>
+                <div class="skill-item"><strong>Englisch:</strong> Verhandlungssicher</div>
+                <div class="skill-item"><strong>Yemba:</strong> Muttersprache</div>
+            </div>
+        </section>
+
+        <section id="berufserfahrung">
+            <h2>💼 Berufserfahrung</h2>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="company-logo">
+                        <img src="siemens-healthineers-logo.png" alt="Siemens Healthineers">
+                    </div>
+                    <div class="job-info">
+                        <h3>Siemens Healthineers</h3>
+                        <div class="job-title">Werkstudent: Management Reporting</div>
+                        <div class="job-period">10.2023 - Heute</div>
+                    </div>
+                </div>
+                <ul class="job-tasks">
+                    <li>Datenbankverwaltung mit Microsoft Access und SQL Server Management Studio (SSMS)</li>
+                    <li>Implementierung eines VBA-Tools für die vollautomatische Datenverarbeitung</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="company-logo">
+                        <img src="siemens-mobility-logo.png" alt="Siemens Mobility">
+                    </div>
+                    <div class="job-info">
+                        <h3>Siemens Mobility</h3>
+                        <div class="job-title">Werkstudent: RPA-Entwicklung mit UiPath</div>
+                        <div class="job-period">10.2021 - 09.2023</div>
+                    </div>
+                </div>
+                <ul class="job-tasks">
+                    <li>Entwicklung von RPA-Lösungen zur Automatisierung von SAP-Prozessen mit UiPath</li>
+                    <li>Bereitstellung und Verwaltung automatisierter Prozesse im UiPath Orchestrator</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="company-logo">
+                        <img src="siemens-energy-logo.png" alt="Siemens Energy">
+                    </div>
+                    <div class="job-info">
+                        <h3>Siemens Energy</h3>
+                        <div class="job-title">Werkstudent: Automatisierung von Geschäftsprozessen mit VBA</div>
+                        <div class="job-period">10.2019 - 09.2021</div>
+                    </div>
+                </div>
+                <ul class="job-tasks">
+                    <li>Automatisierung von Arbeitsprozessen mit VBA</li>
+                    <li>Materialstammpflege in Teamcenter, SAP, Atlas</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="company-logo">
+                        <img src="trench-germany-logo.png" alt="Trench Germany">
+                    </div>
+                    <div class="job-info">
+                        <h3>Trench Germany GmbH</h3>
+                        <div class="job-title">Werkstudent: Konstruktion und Entwicklung</div>
+                        <div class="job-period">03.2019 - 09.2019</div>
+                    </div>
+                </div>
+                <ul class="job-tasks">
+                    <li>Konvertierung von 2D-Zeichnungen in 3D-Modelle mit Autodesk Inventor</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="company-logo">
+                        <img src="fraunhofer-iisb-logo.png" alt="Fraunhofer IISB">
+                    </div>
+                    <div class="job-info">
+                        <h3>Fraunhofer IISB</h3>
+                        <div class="job-title">Wissenschaftliche Hilfskraft</div>
+                        <div class="job-period">05.2018 - 03.2019</div>
+                    </div>
+                </div>
+                <ul class="job-tasks">
+                    <li>Konzeption und CAD-Konstruktion eines Biegewerkzeugs für Leiterplatten mit Creo Parametric</li>
+                    <li>3D-Modellierung eines Leistungsmoduls in Creo Parametric</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ausbildung">
+            <h2>🎓 Ausbildung</h2>
+
+            <div class="education-card">
+                <h3>FAU Erlangen-Nürnberg</h3>
+                <div class="degree">Maschinenbaustudium: M.Sc. Rechnergestützte Produktentwicklung (RPE)</div>
+                <div class="period">10.2021 - Heute (voraussichtlicher Abschluss: 04.2025)</div>
+            </div>
+
+            <div class="education-card">
+                <h3>Masterarbeit - Lehrstuhl FAPS</h3>
+                <div class="degree">Entwicklung eines Konzeptes für einen "dynamischen Formtisch" in der Kabelsatzfertigung</div>
+                <div class="period">01.2024 - 04.2025</div>
+                <p style="margin-top: 1rem;"><strong>Verwendete Software:</strong> Creo Parametric</p>
+            </div>
+
+            <div class="education-card">
+                <h3>FAU Erlangen-Nürnberg</h3>
+                <div class="degree">Maschinenbaustudium: B.Sc. allgemeiner Maschinenbau</div>
+                <div class="period">04.2017 - 10.2021</div>
+            </div>
+
+            <div class="education-card">
+                <h3>Bachelorarbeit - Lehrstuhl FAPS</h3>
+                <div class="degree">Durchgängiges Engineering anhand einer Gleichstromzelle unter Berücksichtigung der Sicherheitsaspekte</div>
+                <div class="period">01.2019 - 06.2019</div>
+                <p style="margin-top: 1rem;"><strong>Verwendete Software:</strong></p>
+                <ul class="job-tasks">
+                    <li>NX (Konstruktion)</li>
+                    <li>Plant Simulation (Materialflusssimulation)</li>
+                    <li>Teamcenter als PLM-System</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <h3>Siemens Mobility</h3>
+                <div class="degree">Praktikum (20 Wochen): Konstruktion und Entwicklung von U-Bahn-Komponenten</div>
+                <div class="period">03.2017 - 07.2017</div>
+                <p style="margin-top: 1rem;"><strong>Verwendete Software:</strong> Creo Parametric, SAP, Windchill</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>🛠️ Fähigkeiten</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>CAD-Tools</h3>
+                    <div class="skill-item">CREO</div>
+                    <div class="skill-item">INVENTOR</div>
+                    <div class="skill-item">NX</div>
+                    <div class="skill-item">AutoCAD</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programmiersprachen</h3>
+                    <div class="skill-item">VBA / VB.Net</div>
+                    <div class="skill-item">UiPath</div>
+                    <div class="skill-item">C#</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Weitere Tools</h3>
+                    <div class="skill-item">SAP</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">MS-Office</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="weiterbildung">
+            <h2>📚 Weiterbildung</h2>
+            <ul class="job-tasks">
+                <li>Entwicklung eines ERP-Prototyps mit C# und VB.Net (<a href="https://www.youtube.com/watch?app=desktop&v=ouR9aUPHLW0&t=485s" target="_blank" style="color: #667eea;">Übersicht (YouTube)</a>)</li>
+                <li>UiPath Kurs bei Siemens Mobility (5 Tage)</li>
+                <li>Grundkurs zur CAD-Software NX (5 Tage)</li>
+                <li>SAP Grundlagenkurs</li>
+            </ul>
+        </section>
+
+        <section id="hobbies">
+            <h2>🎯 Hobbies & Ehrenamt</h2>
+            <h3 style="color: #667eea; margin-bottom: 1rem;">Hobbies</h3>
+            <div class="hobbies-list">
+                <div class="hobby-item">🏀 Basketball: Aktiver Spieler (FAU Uni Sport)</div>
+                <div class="hobby-item">🚴 Fahrradfahren</div>
+            </div>
+            
+            <h3 style="color: #667eea; margin: 2rem 0 1rem;">Ehrenamt</h3>
+            <div class="volunteer-list">
+                <div class="volunteer-item">👨‍🏫 Nachhilfe für kamerunischen Studenten bezüglich des Umgangs mit CAD-Programmen (NX / Creo 6)</div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
