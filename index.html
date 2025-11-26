@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lebenslauf</title>
+    <title>Claude</title>
     <style>
         * {
-            margin: 0;
+            margin: 10;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f2f5;
+            background: #fcfcfc;
             min-height: 100vh;
         }
 
@@ -21,11 +21,13 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(2, 12, 43, 0.95);
+            /*background: rgba(129, 123, 158, 0.95);*/
+            background: linear-gradient(135deg, #328a8d 0%, #233952 100%);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             z-index: 1000;
             padding: 1rem 2rem;
+            border-radius: 14px 8px;
         }
 
         .nav-content {
@@ -46,7 +48,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
+            color: #fffdfd;
             font-weight: 500;
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
@@ -54,8 +56,8 @@
         }
 
         .nav-links a:hover {
-            background: linear-gradient(135deg, #66eaea 0%, #745b8d3a 100%);
-            color: white;
+            background: linear-gradient(135deg, #898da7 0%, #3fa090 100%);
+            color: rgb(14, 3, 34);
             transform: translateY(-2px);
         }
 
@@ -66,8 +68,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #272d49 0%, #4a355f 100%);
-           
+            background: linear-gradient(135deg, #66eaea 0%, #29163b 100%);
             border-radius: 20px;
             padding: 3rem;
             margin-bottom: 2rem;
@@ -76,33 +77,33 @@
             align-items: center;
             gap: 3rem;
             flex-wrap: wrap;
-            color: white;
+            color: rgb(255, 255, 255);
         }
 
         .profile-img {
             width: 200px;
             height: 250px;
             border-radius: 50%;
-            background: white;
+            background: rgb(113, 164, 173);
             display: flex;
-            align-items: center;
+            align-items:flex-start;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 7rem;
             color: #667eea;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             border: 5px solid rgba(255, 255, 255, 0.3);
         }
 
         .profile-img img {
-            width: 100%;
+            width: 800%;
             height: 100%;
             object-fit: cover;
         }
 
         .hero-content {
-            flex: 1;
-            min-width: 300px;
+            flex: 10;
+            min-width: 30px;
         }
 
         .hero-content h1 {
@@ -260,7 +261,7 @@
         }
 
         .skill-item:hover {
-            background: linear-gradient(135deg, #3a6d6e 0%, #4b69a2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             transform: translateX(5px);
         }
@@ -308,11 +309,167 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 90px 1rem 1rem;
-            }
+        .hobby-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
 
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .hobby-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .hobby-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hobby-content {
+            flex: 1;
+        }
+
+        .hobby-content h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            font-size: 1.1rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-image {
+            min-width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #ffffff;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: white;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+             .container {
+        padding: 100px 1rem 1rem;  /* Von 90px auf 100px erhöhen */
+              }
+
+      
             .nav {
                 padding: 0.8rem 1rem;
             }
@@ -337,13 +494,15 @@
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding: 2rem 1.5rem;
+                padding: 4rem 1.5rem;
+                flex-direction: column;
+       
             }
 
             .profile-img {
-                width: 180px;
-                height: 180px;
-                font-size: 3rem;
+                width: 160px;
+                height: 200px;
+                font-size: 7rem;
             }
 
             .hero-content h1 {
@@ -362,7 +521,7 @@
             .info-grid {
                 grid-template-columns: 1fr;
                 gap: 0.5rem;
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
             section {
@@ -441,13 +600,49 @@
                 font-size: 0.9rem;
                 padding: 0.8rem 1.2rem;
             }
+
+            .hobby-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hobby-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+            }
+
+            .project-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+            }
+
+            .image-carousel {
+                height: 250px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="nav">
         <div class="nav-content">
-            <div style="font-weight: bold; font-size: 1.2rem; color: #667eea;"></div>
+            <div style="font-weight: bold; font-size: 1.2rem; color: #667eea;">Lebenslauf</div>
             <div class="nav-links">
                 <a href="#profil">Kana</a>
                 <a href="#berufserfahrung">Berufserfahrung</a>
@@ -465,7 +660,7 @@
                 <img src="mein-foto.jpg" alt="Profilbild">
             </div>
             <div class="hero-content">
-                <h1>Claude Kana</h1>
+                <h1>Claude Kana </h1>
                 <h2>M.Sc. Rechnergestützte Produktentwicklung</h2>
                 
                 <p class="profile-description">
@@ -507,7 +702,7 @@
                     <div class="job-info">
                         <h3>Siemens Healthineers</h3>
                         <div class="job-title">Werkstudent: Management Reporting</div>
-                        <div class="job-period">10.2023 - 09.2025 </div>
+                        <div class="job-period">10.2023 - Heute</div>
                     </div>
                 </div>
                 <ul class="job-tasks">
@@ -584,6 +779,79 @@
             </div>
         </section>
 
+        <section id="projekte">
+            <h2>🚀 Projekte</h2>
+             
+            <div class="project-card">
+                <h3 class="project-title">ERP-Prototyp mit C# und VB.Net</h3>
+                <div class="project-subtitle">Eigenständiges Projekt | Weiterbildung</div>
+                <p class="project-description">
+                    Entwicklung eines vollständigen ERP-Prototyps zur Verwaltung von Geschäftsprozessen. Das System umfasst Module für Lagerverwaltung, Auftragsbearbeitung und Kundenverwaltung. Die Anwendung wurde mit modernem UI-Design und Datenbankanbindung realisiert.
+                </p>
+                <div class="image-carousel" id="carousel2">
+                    <div class="carousel-images">
+                        <img src="images/projekt2-bild1.jpg" alt="Projekt 2 - Bild 1" class="carousel-image">
+                        <img src="images/projekt2-bild2.jpg" alt="Projekt 2 - Bild 2" class="carousel-image">
+                        <img src="images/projekt2-bild3.jpg" alt="Projekt 2 - Bild 3" class="carousel-image">
+                    </div>
+                    <button class="carousel-btn prev" onclick="changeSlide('carousel2', -1)">‹</button>
+                    <button class="carousel-btn next" onclick="changeSlide('carousel2', 1)">›</button>
+                    <div class="carousel-indicators">
+                        <span class="indicator active" onclick="goToSlide('carousel2', 0)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel2', 1)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel2', 2)"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">Dynamischer Formtisch für Kabelsatzfertigung</h3>
+                <div class="project-subtitle">Masterarbeit | Lehrstuhl FAPS</div>
+                <p class="project-description">
+                    Entwicklung eines innovativen Konzeptes für einen dynamischen Formtisch in der Kabelsatzfertigung. Der Formtisch ermöglicht flexible Anpassungen während des Fertigungsprozesses und optimiert die Produktionseffizienz erheblich. CAD-Konstruktion und Simulation wurden mit Creo Parametric durchgeführt.
+                </p>
+                <div class="image-carousel" id="carousel1">
+                    <div class="carousel-images">
+                        <img src="images/projekt1-bild1.jpg" alt="Projekt 1 - Bild 1" class="carousel-image">
+                        <img src="images/projekt1-bild2.jpg" alt="Projekt 1 - Bild 2" class="carousel-image">
+                        <img src="images/projekt1-bild3.jpg" alt="Projekt 1 - Bild 3" class="carousel-image">
+                    </div>
+                    <button class="carousel-btn prev" onclick="changeSlide('carousel1', -1)">‹</button>
+                    <button class="carousel-btn next" onclick="changeSlide('carousel1', 1)">›</button>
+                    <div class="carousel-indicators">
+                        <span class="indicator active" onclick="goToSlide('carousel1', 0)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel1', 1)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel1', 2)"></span>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <div class="project-card">
+                <h3 class="project-title">3D-Konstruktion im Bereich Geräte- und Gebäudemodellierung</h3>
+                <div class="project-subtitle">Eigne Projekte | Creo 11</div>
+                <p class="project-description">
+                    Erstellung realitätsnaher 3D-Modelle von Fitnessgeräten, inklusive konstruktiver Ausarbeitung, Detaillierung einzelner Bauteile sowie technischer Visualisierung. Darüber hinaus Umwandlung von 2D-Grundrissen von Häusern in vollständige 3D-Modelle, beginnend bei der Interpretation der Zeichnungen über die räumliche Rekonstruktion bis hin zur finalen Darstellung mit korrekten Proportionen, Materialien und Raumelementen. Ziel war die Entwicklung hochwertiger Visualisierungen und funktionsorientierter Modelle für Präsentationen, Planung und Analyse.
+                </p>
+                <div class="image-carousel" id="carousel3">
+                    <div class="carousel-images">
+                        <img src="images/projekt3-bild1.jpg" alt="Projekt 3 - Bild 1" class="carousel-image">
+                        <img src="images/projekt3-bild2.jpg" alt="Projekt 3 - Bild 2" class="carousel-image">
+                         <img src="images/projekt3-bild3.jpg" alt="Projekt 3 - Bild 3" class="carousel-image">
+                    </div>
+                    <button class="carousel-btn prev" onclick="changeSlide('carousel3', -1)">‹</button>
+                    <button class="carousel-btn next" onclick="changeSlide('carousel3', 1)">›</button>
+                    <div class="carousel-indicators">
+                        <span class="indicator active" onclick="goToSlide('carousel3', 0)"></span>
+                        <span class="indicator" onclick="goToSlide('carousel3', 1)"></span>
+                    </div>
+                </div>
+            </div>
+
+         
+        </section>
+
         <section id="ausbildung">
             <h2>🎓 Ausbildung</h2>
 
@@ -631,7 +899,7 @@
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>CAD-Tools</h3>
-                    <div class="skill-item">CREO</div>
+                    <div class="skill-item">CREO Parametric</div>
                     <div class="skill-item">INVENTOR</div>
                     <div class="skill-item">NX</div>
                     <div class="skill-item">AutoCAD</div>
@@ -663,17 +931,90 @@
 
         <section id="hobbies">
             <h2>🎯 Hobbies & Ehrenamt</h2>
-            <h3 style="color: #667eea; margin-bottom: 1rem;">Das mache ich gerne</h3>
-            <div class="hobbies-list">
-                <div class="hobby-item">🏀 Basketball: Aktiver Spieler</div>
-                <div class="hobby-item">🚴 Fahrradfahren</div>
+            
+            <h3 style="color: #667eea; margin-bottom: 1.5rem;">Hobbies</h3>
+            
+            <div class="hobby-card">
+                <div class="hobby-image">
+                    <img src="images/basketball.jpg" alt="Basketball">
+                </div>
+                <div class="hobby-content">
+                    <h3>🏀 Basketball</h3>
+                    <p>Aktiver Spieler beim FAU Uni Sport. Basketball ist für mich nicht nur ein Sport, sondern auch eine großartige Möglichkeit, Teamgeist zu entwickeln und fit zu bleiben.</p>
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <div class="hobby-image">
+                    <img src="images/fahrrad.jpg" alt="Fahrradfahren">
+                </div>
+                <div class="hobby-content">
+                    <h3>🚴 Fahrradfahren</h3>
+                    <p>Regelmäßige Fahrradtouren durch die fränkische Landschaft. Das Radfahren bietet mir einen perfekten Ausgleich zum Berufsalltag und ermöglicht es mir, die Natur zu genießen.</p>
+                </div>
             </div>
             
-            <h3 style="color: #667eea; margin: 2rem 0 1rem;">Ehrenamt</h3>
-            <div class="volunteer-list">
-                <div class="volunteer-item">👨‍🏫 Nachhilfe für kamerunischen Studenten bezüglich des Umgangs mit CAD-Programmen (NX / Creo)</div>
+            <h3 style="color: #667eea; margin: 2rem 0 1.5rem;">Ehrenamt</h3>
+            
+            <div class="hobby-card">
+                <div class="hobby-image">
+                    <img src="images/nachhilfe.jpg" alt="Nachhilfe">
+                </div>
+                <div class="hobby-content">
+                    <h3>👨‍🏫 Nachhilfe & Mentoring</h3>
+                    <p>Nachhilfe für kamerunische Studenten bezüglich des Umgangs mit CAD-Programmen wie NX und Creo 11. Es bereitet mir große Freude, mein Wissen weiterzugeben und anderen zu helfen.</p>
+                </div>
             </div>
         </section>
     </div>
+
+    <script>
+        const carousels = {};
+
+        function initCarousel(id) {
+            carousels[id] = { currentIndex: 0 };
+        }
+
+        function changeSlide(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const images = carousel.querySelector('.carousel-images');
+            const indicators = carousel.querySelectorAll('.indicator');
+            const totalImages = images.children.length;
+            
+            if (!carousels[carouselId]) initCarousel(carouselId);
+            
+            carousels[carouselId].currentIndex += direction;
+            
+            if (carousels[carouselId].currentIndex < 0) {
+                carousels[carouselId].currentIndex = totalImages - 1;
+            } else if (carousels[carouselId].currentIndex >= totalImages) {
+                carousels[carouselId].currentIndex = 0;
+            }
+            
+            updateCarousel(carouselId);
+        }
+
+        function goToSlide(carouselId, index) {
+            if (!carousels[carouselId]) initCarousel(carouselId);
+            carousels[carouselId].currentIndex = index;
+            updateCarousel(carouselId);
+        }
+
+        function updateCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const images = carousel.querySelector('.carousel-images');
+            const indicators = carousel.querySelectorAll('.indicator');
+            const index = carousels[carouselId].currentIndex;
+            
+            images.style.transform = `translateX(-${index * 100}%)`;
+            
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        // Initialize all carousels
+        ['carousel1', 'carousel2', 'carousel3', 'carousel4'].forEach(id => initCarousel(id));
+    </script>
 </body>
 </html>
